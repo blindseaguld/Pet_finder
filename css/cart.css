@@ -1,0 +1,139 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+
+.contacts {
+  background-color: #f7f7f7;
+  padding: 40px 0;
+}
+
+.contact-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.contact-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.contact-info p {
+  margin-bottom: 8px;
+}
+
+.contact-label {
+  font-weight: bold;
+}
+
+
+.header {
+  background-color: #f1f1f1;
+  color: #fff;
+  padding: 10px;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.menu li {
+  margin-right: 10px;
+}
+
+.menu li a {
+  color: #302b2b;
+  text-decoration: none;
+  padding: 8px;
+}
+
+.menu li a:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+.menu li a.active {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+
+.cart {
+  margin-top: 40px;
+}
+
+.cart h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.pet {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  display: inline-block;
+  width: 250px;
+  margin: 10px;
+}
+
+.pet img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.pet h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.pet p {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.pet .price {
+  font-weight: bold;
+}
+
+.pet .remove-from-cart {
+  background-color: #ddd;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.pet .remove-from-cart:hover {
+  background-color: #999;
+  color: #fff;
+}

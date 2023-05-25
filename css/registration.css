@@ -1,0 +1,86 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* Стили для заголовка */
+  .header {
+    background-color: #CDEDFF;
+    color: #fff;
+    padding: 20px;
+  }
+
+  .header h1 {
+    margin: 0;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  /* Стили для формы регистрации */
+  .registration {
+    margin-top: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  .form-group input[type="email"],
+  .form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .form-group input[type="submit"] {
+    background-color: #222;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  /* Стили для сообщений об ошибке и успехе */
+  .error-message,
+  .success-message {
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  .error-message {
+    background-color: #ffcccc;
+    color: #cc0000;
+  }
+
+  .success-message {
+    background-color: #ccffcc;
+    color: #006600;
+  }
+
+  /* Стили для футера */
+  .footer {
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }

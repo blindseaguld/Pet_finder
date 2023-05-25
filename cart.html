@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/cart.css">
+  <style>
+    /* Ваш CSS-код здесь */
+  </style>
+  <title>Корзина</title>
+</head>
+<body>
+  <header class="header">
+    <div class="nav">
+      <a href="main.php">
+        <img src="img/logo.svg" alt="Pet Finder" class="logo">
+      </a>
+      <ul class="menu">
+        <li><a href="friends.php">Друзья</a></li>
+        <li><a href="contact.html">Контакты</a></li>
+        <li><a href="cart.html">Корзина</a></li>
+      </ul>
+    </div>
+  </header>
+  <section class="cart">
+    <div class="container">
+      <h2>Корзина</h2>
+      <div id="cart-items"></div>
+      <p id="total-price"></p>
+      <button id="pay-button">Оплатить</button>
+    </div>
+  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Получаем список заказов из localStorage
+      var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+      // Получаем элемент контейнера для показа питомцев в корзине
+      var cartContainer = document.getElementById('cart-items');
+      var totalPriceElement = document.getElementById('total-price');
+      var payButton = document.getElementById('pay-button');
+
+      // Проверяем, есть ли питомцы в корзине
+      if (cartItems.length > 0) {
+        var totalPrice = 0;
+
+        // Создаем элементы для каждого питомца и добавляем их в контейнер
+        cartItems.forEach(function(item, index) {
+          var petElement = document.createElement('div');
+          petElement.classList.add('pet');
+          petElement.innerHTML = `
+            <img src="${item.image}" alt="${item.name}">
+            <h3>${item.name}</h3>
+            <p class="description">${item.description}</p>
+            <p class="price">${item.price}</p>
+            <button class="remove-from-cart" data-index="${index}">Удалить из корзины</button>
+          `;
+
+          // Добавляем стоимость питомца к общей стоимости
+          totalPrice += parseFloat(item.price);
+          cartContainer.appendChild(petElement);
+        });
+
+        // Обработчик события для кнопок "Удалить из корзины"
+        var removeFromCartButtons = document.querySelectorAll('.remove-from-cart');
+        removeFromCartButtons.forEach(function(button) {
+          button.addEventListener('click', function(event) {
+            event.preventDefault(); // Отменяем переход по ссылке
+
+            // Получаем индекс питомца, который нужно удалить
+            var index = this.getAttribute('data-index');
+
+            // Удаляем питомца из списка заказов
+            cartItems.splice(index, 1);
+
+            // Сохраняем обновленный список заказов в localStorage
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Удаляем элемент питомца из DOM
+            var petElement = this.parentNode;
+            petElement.remove();
+
+            // Обновляем общую стоимость после удаления питомца
+            totalPrice -= parseFloat(item.price);
+            totalPriceElement.textContent = 'Общая стоимость: ' + totalPrice + ' руб.';
+
+            // Если корзина пуста, показываем сообщение
+            if (cartItems.length === 0) {
+              cartContainer.innerHTML = '<p>Ваша корзина пуста.</p>';
+              totalPriceElement.textContent = '';
+            }
+          });
+        });
+
+        // Обработчик события для кнопки "Оплатить"
+        payButton.addEventListener('click', function() {
+          // Передаем список товаров в URL страницы оплаты
+          var productIds = cartItems.map(function(item) {
+            return item.id;
+          }).join(',');
+
+          // Перенаправляем пользователя на страницу оплаты с передачей списка товаров через URL
+          window.location.href = 'payment.html?products=' + productIds;
+        });
+      } else {
+        // Если корзина пуста, показываем сообщение
+        cartContainer.innerHTML = '<p>Ваша корзина пуста.</p>';
+        totalPriceElement.textContent = '';
+      }
+    });
+  </script>
+</body>
+</html>
