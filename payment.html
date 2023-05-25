@@ -5,9 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/payment.css">
-  <style>
-    /* Ваш CSS-код здесь */
-  </style>
+  
+    
+  
   <title>Страница оплаты</title>
 </head>
 <body>
@@ -30,11 +30,11 @@
       <div id="products-list"></div>
       
       <script>
-        // Получаем параметры из URL
+        
         var urlParams = new URLSearchParams(window.location.search);
         var productIds = urlParams.get('products');
         
-        // Пример обработки списка товаров
+      
         if (productIds) {
           var products = productIds.split(',');
           console.log('Список товаров:', products);
@@ -42,7 +42,7 @@
           var productsListContainer = document.getElementById('products-list');
           productsListContainer.innerHTML = '<h3>Выбранные товары:</h3>';
           
-          // Создаем элементы для каждого товара и добавляем их в контейнер
+         
           products.forEach(function(productId) {
             var productElement = document.createElement('div');
             productElement.classList.add('product');
