@@ -44,7 +44,7 @@
                 $name = $row["name"];
                 $price = $row["price"];
 
-                // Вставляем данные в HTML-код
+                
                 echo '<div class="pet-card">';
                 echo '<h3>' . $name . '</h3>';
                 echo '<p class="price">Цена: $' . $price . '</p>';
@@ -63,30 +63,30 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Обработчик события для кнопок "Добавить в корзину"
+      
       var addToCartButtons = document.querySelectorAll('.add-to-cart');
       addToCartButtons.forEach(function(button) {
         button.addEventListener('click', function(event) {
-          event.preventDefault(); // Отменяем переход по ссылке
+          event.preventDefault(); 
 
-          // Получаем информацию о питомце
+          
           var petCard = this.closest('.pet-card');
           var petName = petCard.querySelector('h3').textContent;
           var petPrice = petCard.querySelector('.price').textContent;
 
-          // Создаем объект с информацией о питомце
+          
           var petInfo = {
             name: petName,
             price: petPrice
           };
 
-          // Получаем текущий список заказов из localStorage или создаем новый, если его нет
+          
           var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-          // Добавляем питомца в список заказов
+         
           cartItems.push(petInfo);
 
-          // Сохраняем обновленный список заказов в localStorage
+          
           localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
         
