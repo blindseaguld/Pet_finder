@@ -1,7 +1,7 @@
 <?php
-session_start(); // Начало сессии
+session_start(); 
 
-// Проверка, если пользователь уже авторизован, перенаправляем на главную страницу
+
 if (isset($_SESSION['email'])) {
     header("Location: main.php");
     exit();
@@ -30,18 +30,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $row = $result->fetch_assoc();
         $hashedPassword = $row['password'];
 
-        // Проверка соответствия введенного пароля хэшированному паролю в базе данных
+        
         if (password_verify($password, $hashedPassword)) {
-            // Учетные данные верны, устанавливаем сеанс для пользователя
+          
             $_SESSION['email'] = $email;
             header("Location: main.php");
             exit();
         } else {
-            // Неверный пароль
             $loginError = "Неверный пароль";
         }
     } else {
-        // Пользователь с указанным email не найден
+        
         $loginError = "Пользователь с указанным email не найден";
     }
 
@@ -93,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   <footer class="footer">
     <div class="container">
-      <p>© 2023 Ваше приложение. Все права защищены</p>
+      <p>© 2023 Pet Finder. Все права защищены</p>
     </div>
   </footer>
 </body>
