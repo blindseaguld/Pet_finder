@@ -57,7 +57,7 @@
 
   <footer class="footer">
     <div class="container">
-      <p>© 2023 Ваше приложение. Все права защищены</p>
+      <p>© 2023 Pet Finder. Все права защищены</p>
     </div>
   </footer>
 </body>
